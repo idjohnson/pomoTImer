@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>25-Minute Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #timer {
+            font-size: 80px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        #reset-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #reset-button:hover {
+            background-color: #3e8e41;
+        }
+        .flash {
+            animation: flash 1s ease-in-out;
+        }
+        @keyframes flash {
+            0% { background-color: #fff; }
+            50% { background-color: #ffff00; }
+            100% { background-color: #fff; }
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">25:00</div>
+    <button id="reset-button">Reset</button>
+    <audio id="alarm" src="alarm.mp3" preload="auto"></audio>
+    <script src="renderer.js"></script>
+</body>
+</html>
