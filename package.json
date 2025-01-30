@@ -5,12 +5,30 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build": "electron-builder",
+    "build:linux": "electron-builder --linux",
+    "build:windows": "electron-builder --windows",
+    "build:mac": "electron-builder --mac",
+    "build:all": "electron-builder --linux --windows --mac",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "electron": "^34.0.1"
+  "devDependencies": {
+    "electron": "^34.0.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.example.countdown-timer",
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "alarm.mp3"
+    ],
+    "directories": {
+      "output": "dist"
+    }
   }
 }
