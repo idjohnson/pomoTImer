@@ -28,7 +28,7 @@ jobs:
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
         with:
           name: Windows
           path: dist/Countdown Timer Setup.exe
@@ -53,7 +53,7 @@ jobs:
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
         with:
           name: Linux
           path: dist/countdown-timer
@@ -78,7 +78,7 @@ jobs:
       - name: Upload Mac artifact
         uses: actions/upload-artifact@v3
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
         with:
           name: Mac
           path: dist/Countdown Timer.dmg
