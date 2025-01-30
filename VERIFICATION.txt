@@ -1,0 +1,7 @@
+VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+
+This is built in a Public Open-Source GIT repo on Github (https://github.com/idjohnson/pomoTImer).
+The binaries can be found on the Github Actions pages as artifacts (https://github.com/idjohnson/pomoTImer/actions)
+Each final release will share the source code in the Releases area of Github (https://github.com/idjohnson/pomoTImer/releases)
