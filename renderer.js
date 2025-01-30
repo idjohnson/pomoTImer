@@ -1,10 +1,16 @@
 let timerElement = document.getElementById('timer');
 let resetButton = document.getElementById('reset-button');
 let startStopButton = document.getElementById('start-stop-button');
-let alarmAudio = document.getElementById('alarm');
+let canvas = document.getElementById('equalizer');
+let ctx = canvas.getContext('2d');
 let intervalId = null;
 let timerSeconds = 25 * 60; // 25 minutes in seconds
 let isRunning = false;
+
+// Equalizer bars
+const bars = 10;
+const barWidth = canvas.width / bars;
+let animationId;
 
 function displayTime() {
     let minutes = Math.floor(timerSeconds / 60);
@@ -20,11 +26,8 @@ function countdown() {
         clearInterval(intervalId);
         isRunning = false;
         startStopButton.textContent = "Start";
-        alarmAudio.play();
-        timerElement.classList.add('flash');
-        setTimeout(() => {
-            timerElement.classList.remove('flash');
-        }, 1000);
+        // Animate end
+        animateEnd();
     }
 }
 
@@ -33,11 +36,41 @@ function toggleTimer() {
         isRunning = true;
         startStopButton.textContent = "Stop";
         intervalId = setInterval(countdown, 1000);
+        animateStart();
     } else {
         isRunning = false;
         startStopButton.textContent = "Start";
         clearInterval(intervalId);
     }
+}
+
+function animateStart() {
+    // Add some visual feedback when starting
+    timerElement.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+        timerElement.style.transform = 'scale(1)';
+    }, 200);
+}
+
+function animateEnd() {
+    // Add some visual feedback when ending
+    timerElement.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+        timerElement.style.transform = 'scale(1)';
+    }, 200);
+}
+
+function drawEqualizer() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw bars
+    for (let i = 0; i < bars; i++) {
+        const barHeight = Math.random() * canvas.height;
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        ctx.fillRect(i * barWidth, canvas.height - barHeight, barWidth, barHeight);
+    }
+    
+    animationId = requestAnimationFrame(drawEqualizer);
 }
 
 resetButton.addEventListener('click', () => {
@@ -50,5 +83,11 @@ resetButton.addEventListener('click', () => {
 
 startStopButton.addEventListener('click', toggleTimer);
 
-// Initialize the display
+// Initialize the display and equalizer
 displayTime();
+drawEqualizer();
+
+// Cleanup
+window.addEventListener('beforeunload', () => {
+    cancelAnimationFrame(animationId);
+});
