@@ -25,6 +25,8 @@ jobs:
         run: npm install
       - name: Build Windows
         run: npm run build:windows
+        env:
+          GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
         env:
@@ -50,6 +52,8 @@ jobs:
         run: npm install
       - name: Build Linux
         run: npm run build:linux
+        env:
+          GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
         env:
@@ -75,6 +79,8 @@ jobs:
         run: npm install
       - name: Build Mac
         run: npm run build:mac
+        env:
+          GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
       - name: Upload Mac artifact
         uses: actions/upload-artifact@v3
         env:
