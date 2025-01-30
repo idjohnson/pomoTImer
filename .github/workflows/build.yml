@@ -33,7 +33,7 @@ jobs:
           GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
         with:
           name: Windows
-          path: dist/Countdown Timer Setup.exe
+          path: dist/*.exe
 
   build-linux:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
         with:
           name: Linux
-          path: dist/countdown-timer
+          path: dist/*.AppImage
 
   build-mac:
     runs-on: macos-latest
@@ -87,4 +87,4 @@ jobs:
           GH_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
         with:
           name: Mac
-          path: dist/Countdown Timer.dmg
+          path: dist/*.dmg
