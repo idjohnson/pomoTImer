@@ -45,6 +45,8 @@ jobs:
           name: Windows
           path: dist/*.exe
           overwrite: true
+      - name: Debug
+        run: dir dist
       - name: Push to Chocolatey
         run: choco push dist/CountdownTimer.*.nupkg --source=https://push.chocolatey.org/ --api-key=${{ secrets.CHOCOKEY }}
 
