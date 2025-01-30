@@ -37,6 +37,23 @@
             margin-bottom: 2rem;
         }
 
+        /* Progress bar */
+        .progress-container {
+            width: 300px;
+            height: 20px;
+            background: #444;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.1s linear;
+        }
+
         /* Controls */
         .controls {
             display: flex;
@@ -57,41 +74,19 @@
         button:hover {
             background: #999;
         }
-
-        /* Equalizer visualization */
-        .equalizer {
-            width: 300px;
-            height: 100px;
-            background: #333;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .equalizer-bars {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            height: 100%;
-            padding: 10px;
-        }
-
-        .bar {
-            width: 15%;
-            background: #4CAF50;
-            border-radius: 5px 5px 0 0;
-            transition: height 0.1s;
-        }
     </style>
 </head>
 <body>
     <div class="timer-container">
         <div id="timer">00:00</div>
-        <div class="controls">
-            <button id="reset-button">Reset</button>
-            <button id="start-stop-button">Start</button>
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
         </div>
         <div class="equalizer">
             <canvas id="equalizer"></canvas>
+        <div class="controls">
+            <button id="reset-button">Reset</button>
+            <button id="start-stop-button">Start</button>
         </div>
     </div>
 
