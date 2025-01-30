@@ -46,10 +46,7 @@ jobs:
           path: dist/*.exe
           overwrite: true
       - name: Push to Chocolatey
-        uses: chocolatey-community/publish@v1
-        with:
-          api-key: ${{ secrets.CHOCOKEY }}
-          package-path: dist/CountdownTimer.1.0.0.nupkg
+        run: choco push dist/CountdownTimer.*.nupkg --source=https://push.chocolatey.org/ --api-key=${{ secrets.CHOCOKEY }}
 
 
   build-linux:
