@@ -6,11 +6,14 @@
     <version>1.0.0</version>
     <authors>Isaac Johnson</authors>
     <owners>Isaac Johnson</owners>
+    <readme>docs\README.md</readme>
     <description>A countdown timer application</description>
     <projectUrl>https://github.com/idjohnson/pomoTImer</projectUrl>
     <tags>countdown timer productivity pomodoro</tags>
   </metadata>
   <files>
+    <file src="README.md" target="docs\" />
     <file src="dist/countdown-timer Setup 1.0.0.exe" target="tools/Countdown Timer Setup.exe" />
   </files>
 </package>
+

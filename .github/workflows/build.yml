@@ -48,7 +48,7 @@ jobs:
       - name: Debug
         run: dir dist
       - name: Push to Chocolatey
-        run: choco push dist/CountdownTimer.*.nupkg --source=https://push.chocolatey.org/ --api-key=${{ secrets.CHOCOKEY }}
+        run: choco push dist/CountdownTimer.1.0.0.nupkg --source=https://push.chocolatey.org/ --api-key=${{ secrets.CHOCOKEY }}
 
 
   build-linux:
