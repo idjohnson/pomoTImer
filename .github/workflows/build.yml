@@ -1,0 +1,63 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  NODE_VERSION: '16.x'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build Windows
+        run: npm run build:windows
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Windows
+          path: dist/Countdown Timer Setup.exe
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build Linux
+        run: npm run build:linux
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux
+          path: dist/countdown-timer
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build Mac
+        run: npm run build:mac
+      - name: Upload Mac artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Mac
+          path: dist/Countdown Timer.dmg
