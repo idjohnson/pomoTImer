@@ -4,7 +4,7 @@
     <id>CountdownTimer</id>
     <title>25m Countdown Timer</title>
     <version>1.1.0</version>
-    <license>docs\LICENSE.txt</license>
+    <license type="file">docs\LICENSE.txt</license>
     <authors>Isaac Johnson</authors>
     <owners>Isaac Johnson</owners>
     <readme>docs\README.md</readme>
